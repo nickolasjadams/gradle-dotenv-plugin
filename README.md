@@ -61,12 +61,7 @@ flyway {
 
 
 ## Using new plugin API
-
-Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:
-```groovy
-plugins {
-  id "io.github.nickolasjadams.dotenv" version "<current_version>"
-}
+Don't. You can't access the ext block in time if you do.
 ```
 
 ## Specify the System Property to check what environment to load
@@ -81,7 +76,7 @@ ext {
 }
 ```
 
-The plugin will look for the environement in that property (e.g. "production").
+The plugin will look for the environment in that property (e.g. "production").
 Then it will look for the file `.env.production` in the project root directory.
 
 You may also pass the system property in the command line when running gradle tasks like this:
