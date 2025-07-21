@@ -1,4 +1,4 @@
-package com.github.otkmnb2783.dotenv
+package io.github.nickolasjadams.dotenv
 
 fun String.isComment(): Boolean {
     return this.startsWith(prefix = "#") or this.startsWith(prefix = """//""")

@@ -1,4 +1,4 @@
-package com.github.otkmnb2783.dotenv
+package io.github.nickolasjadams.dotenv
 
 import java.io.File
 import org.gradle.testkit.runner.GradleRunner
@@ -14,7 +14,7 @@ class DotenvPluginFunctionalTest {
         projectDir.resolve("settings.gradle").writeText("")
         projectDir.resolve("build.gradle").writeText("""
             plugins {
-                id('com.github.otkmnb2783.dotenv')
+                id('io.github.nickolasjadams.dotenv')
             }
             println("${dollar}{env.MYSQL_USER}")
             println("${dollar}{env.MYSQL_PASSWORD}")
@@ -48,7 +48,7 @@ class DotenvPluginFunctionalTest {
         projectDir.resolve("settings.gradle").writeText("")
         projectDir.resolve("build.gradle").writeText("""
             plugins {
-                id('com.github.otkmnb2783.dotenv')
+                id('io.github.nickolasjadams.dotenv')
             }
             dotenv {
                 dir = "./"

@@ -1,4 +1,4 @@
-package com.github.otkmnb2783.dotenv
+package io.github.nickolasjadams.dotenv
 
 import org.gradle.api.*
 import kotlin.reflect.*

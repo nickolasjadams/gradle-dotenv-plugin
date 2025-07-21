@@ -5,12 +5,14 @@
  * For more details take a look at the Writing Custom Plugins chapter in the Gradle
  * User Manual available at https://docs.gradle.org/5.5/userguide/custom_plugins.html
  */
+var v = "1.0.0"
 plugins {
     // Apply the Java Gradle plugin development plugin to add support for developing Gradle plugins
     `java-gradle-plugin`
     // Apply the Kotlin JVM plugin to add support for Kotlin.
     id("org.jetbrains.kotlin.jvm").version("1.3.31")
     id("com.gradle.plugin-publish") version "0.12.0"
+    `maven-publish`
 }
 
 repositories {
@@ -29,18 +31,18 @@ dependencies {
 gradlePlugin {
     // Define the plugin
     val dotenv by plugins.creating {
-        id = "com.github.otkmnb2783.dotenv"
-        implementationClass = "com.github.otkmnb2783.dotenv.DotenvPlugin"
+        id = "io.github.nickolasjadams.dotenv"
+        implementationClass = "io.github.nickolasjadams.dotenv.DotenvPlugin"
     }
 }
 
 pluginBundle {
     // These settings are set for the whole plugin bundle
-    website = "https://github.com/otkmnb2783/gradle-dotenv-plugin"
-    vcsUrl = "https://github.com/otkmnb2783/gradle-dotenv-plugin"
+    website = "https://github.com/nickolasjadams/gradle-dotenv-plugin"
+    vcsUrl = "https://github.com/nickolasjadams/gradle-dotenv-plugin"
     // tags and description can be set for the whole bundle here, but can also
     // be set / overridden in the config for specific plugins
-    description = "This plugin loads the dotenv file so that it can be referenced from build.gradle."
+    description = "This plugin dynamically loads the appropriate dotenv file so that it can be referenced from build.gradle."
 
     // The plugins block can contain multiple plugin entries.
     //
@@ -62,8 +64,8 @@ pluginBundle {
         "dotenv" {
             // id is captured from java-gradle-plugin configuration
             displayName = "Gradle Dotenv plugin"
-            tags = listOf("gradle", "tags", "per", "plugin")
-            version = "0.2.0"
+            tags = listOf("gradle", "dotenv", "environment", "plugin")
+            version = v
         }
 
     }
@@ -81,10 +83,13 @@ pluginBundle {
     // You can also override the version of the deployed artifact here, though it
     // defaults to the project version, which would normally be sufficient.
 
+    group = "io.github.nickolasjadams"
+    version = v
+
     mavenCoordinates {
-        groupId = "com.github.otkmnb2783"
+        groupId = "io.github.nickolasjadams"
         artifactId = "dotenv-plugins"
-        version = "0.2.0"
+        version = v
     }
 }
 
