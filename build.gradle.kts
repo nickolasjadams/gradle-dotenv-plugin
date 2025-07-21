@@ -5,7 +5,7 @@
  * For more details take a look at the Writing Custom Plugins chapter in the Gradle
  * User Manual available at https://docs.gradle.org/5.5/userguide/custom_plugins.html
  */
-var v = "1.0.0"
+var v = "1.0.1"
 plugins {
     // Apply the Java Gradle plugin development plugin to add support for developing Gradle plugins
     `java-gradle-plugin`
